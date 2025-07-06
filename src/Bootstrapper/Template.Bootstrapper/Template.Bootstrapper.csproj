@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\aspire\Template.ServiceDefaults\Template.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\..\Modules\Users\Template.Modules.Users\Template.Modules.Users.csproj"/>
     </ItemGroup>
 
 </Project>

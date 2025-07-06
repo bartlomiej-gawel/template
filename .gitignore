@@ -14,6 +14,13 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -22,6 +29,10 @@ artifacts/
 # NuGet Packages
 *.nupkg
 *.snupkg
+*.nuget.props
+*.nuget.targets
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
 
 # Others
 CodeCoverage/
@@ -38,6 +49,11 @@ CodeCoverage/
 # JetBrains Rider
 *.idea/
 *.sln.iml
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
 
 # macOS
 ../.DS_Store
