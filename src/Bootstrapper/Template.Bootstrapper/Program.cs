@@ -5,15 +5,15 @@ using Template.Shared.Infrastructure.Modules;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
+builder.Services.AddInfrastructure();
 
 var assemblies = ModuleLoader.LoadAssemblies();
 var modules = ModuleLoader.LoadModules(assemblies);
 
-builder.Services.AddInfrastructure();
-builder.Services.AddEndpoints(assemblies);
-
 foreach (var module in modules)
     module.Register(builder.Services, builder.Configuration);
+
+builder.Services.AddEndpoints(assemblies);
 
 var app = builder.Build();
 app.UseServiceDefaults();
