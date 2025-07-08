@@ -16,11 +16,11 @@ var zitadel = builder.AddZitadel("template-zitadel", zitadelDb, postgresUsername
     .WithReference(postgres)
     .WaitFor(postgres);
 
-builder.AddProject<Template_Services_Bootstrapper>("template-bootstrapper")
+builder.AddProject<Template_Services_Bootstrapper>("template-services-bootstrapper")
     .WithReference(postgres)
     .WaitFor(postgres);
 
-builder.AddProject<Template_Services_Gateway>("template-gateway")
+builder.AddProject<Template_Services_Gateway>("template-services-gateway")
     .WithReference(zitadel)
     .WaitFor(zitadel);
 
