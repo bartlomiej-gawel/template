@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
-using Template.ServiceDefaults.Extensions;
+using Template.Aspire.ServiceDefaults.Extensions;
 
-namespace Template.ServiceDefaults;
+namespace Template.Aspire.ServiceDefaults;
 
 public static class ServiceDefaultsExtensions
 {

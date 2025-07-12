@@ -1,4 +1,4 @@
-using Template.ServiceDefaults;
+using Template.Aspire.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();

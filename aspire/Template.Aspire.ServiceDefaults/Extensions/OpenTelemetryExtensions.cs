@@ -5,7 +5,7 @@ using OpenTelemetry;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
-namespace Template.ServiceDefaults.Extensions;
+namespace Template.Aspire.ServiceDefaults.Extensions;
 
 internal static class OpenTelemetryExtensions
 {

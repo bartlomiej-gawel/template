@@ -2,7 +2,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
-namespace Template.ServiceDefaults.Extensions;
+namespace Template.Aspire.ServiceDefaults.Extensions;
 
 internal static class SerilogExtensions
 {

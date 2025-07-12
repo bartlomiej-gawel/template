@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 
-namespace Template.ServiceDefaults.Extensions;
+namespace Template.Aspire.ServiceDefaults.Extensions;
 
 internal static class HealthChecksExtensions
 {
