@@ -8,7 +8,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\aspire\Template.Aspire.ServiceDefaults\Template.Aspire.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\..\aspire\Template.Aspire.ServiceDefaults\Template.Aspire.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\..\Modules\Notifications\Template.Modules.Notifications.Api\Template.Modules.Notifications.Api.csproj"/>
+        <ProjectReference Include="..\..\Modules\Users\Template.Modules.Users.Api\Template.Modules.Users.Api.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
 </Project>

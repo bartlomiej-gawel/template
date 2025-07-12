@@ -8,6 +8,7 @@ var postgres = builder.AddPostgres("template-postgres", postgresUsername, postgr
     .WithDataVolume(isReadOnly: false)
     .WithLifetime(ContainerLifetime.Persistent);
 
+var templateDb = postgres.AddDatabase("template-db");
 builder.AddProject<Template_Services_Bootstrapper>("template-services-bootstrapper")
     .WithReference(postgres)
     .WaitFor(postgres);

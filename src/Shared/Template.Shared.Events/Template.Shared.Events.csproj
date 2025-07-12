@@ -8,12 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Shared\Template.Shared.Events\Template.Shared.Events.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Entities\" />
-      <Folder Include="Types\" />
+        <ProjectReference Include="..\Template.Shared.Types\Template.Shared.Types.csproj"/>
     </ItemGroup>
 
 </Project>
