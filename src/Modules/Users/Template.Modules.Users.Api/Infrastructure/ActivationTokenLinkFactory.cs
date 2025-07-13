@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Template.Modules.Users.Api.Domain;
 
-namespace Template.Modules.Users.Api.Domain.Tokens;
+namespace Template.Modules.Users.Api.Infrastructure;
 
 public sealed class ActivationTokenLinkFactory
 {
@@ -16,7 +17,7 @@ public sealed class ActivationTokenLinkFactory
         _linkGenerator = linkGenerator;
     }
 
-    public string CreateLink(ActivationToken activationToken)
+    public string CreateLink(UserActivationToken userActivationToken)
     {
         var httpContext = _httpContextAccessor.HttpContext;
         if (httpContext is null)

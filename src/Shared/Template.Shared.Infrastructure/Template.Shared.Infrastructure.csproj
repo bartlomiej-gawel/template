@@ -12,7 +12,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="libphonenumber-csharp" Version="9.0.9" />
+        <PackageReference Include="libphonenumber-csharp" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.7"/>
+        <PackageReference Include="WolverineFx.FluentValidation" Version="4.5.3"/>
+        <PackageReference Include="WolverineFx.Http" Version="4.5.3"/>
     </ItemGroup>
 
 </Project>

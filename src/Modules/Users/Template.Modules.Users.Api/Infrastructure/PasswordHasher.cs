@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace Template.Modules.Users.Api.Domain.Credentials;
+namespace Template.Modules.Users.Api.Infrastructure;
 
 public static class PasswordHasher
 {
