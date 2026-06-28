@@ -1,0 +1,9 @@
+<aside class="sidebar">
+    <div class="sidebar__inner">
+        @ChildContent
+    </div>
+</aside>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

@@ -1,0 +1,47 @@
+@implements IDisposable
+@inject NavigationManager Navigation
+
+<FluentNavCategory Title="@Title"
+                   IconRest="@IconRest"
+                   IconActive="@IconActive"
+                   @bind-Expanded="Expanded">
+    @ChildContent
+</FluentNavCategory>
+
+@code {
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public Icon? IconRest { get; set; }
+    [Parameter] public Icon? IconActive { get; set; }
+    [Parameter] public string? BasePath { get; set; }
+    [Parameter] public bool DefaultExpanded { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    // Public so consumers (and tests) can observe the resolved expanded state.
+    public bool Expanded { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Expanded = DefaultExpanded || MatchesCurrentRoute();
+        Navigation.LocationChanged += OnLocationChanged;
+    }
+
+    private bool MatchesCurrentRoute()
+    {
+        var relative = Navigation.ToBaseRelativePath(Navigation.Uri);
+        return SidebarRouteMatch.IsUnder(relative, BasePath);
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        // Auto-open when navigating into the category; never auto-collapse the user's choice.
+        if (Expanded || !MatchesCurrentRoute())
+        {
+            return;
+        }
+
+        Expanded = true;
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose() => Navigation.LocationChanged -= OnLocationChanged;
+}

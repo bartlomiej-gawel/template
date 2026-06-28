@@ -1,3 +1,40 @@
-﻿@inherits LayoutComponentBase
+﻿@using Template.Client.Layout.Sidebar
 
-@Body
+@inherits LayoutComponentBase
+
+<SidebarProvider PersistKey="template.sidebar">
+    <Sidebar>
+        <SidebarHeader>
+            <SidebarLabel Title="Template" Subtitle="Backoffice">
+                <Leading><FluentAvatar Initials="B" Size="AvatarSize.Size40" /></Leading>
+            </SidebarLabel>
+        </SidebarHeader>
+        <SidebarContent>
+            <SidebarNav>
+                <SidebarNavSectionHeader Title="Home" />
+                <SidebarNavItem Href="/" Match="NavLinkMatch.All"
+                                IconRest="@(new Icons.Regular.Size20.Home())"
+                                IconActive="@(new Icons.Filled.Size20.Home())">
+                    Home
+                </SidebarNavItem>
+            </SidebarNav>
+        </SidebarContent>
+        <SidebarFooter>
+            <SidebarLabel Title="Bartłomiej Gaweł" Subtitle="bartlomiej_gawel@outlook.com">
+                <Leading><FluentAvatar Name="Bartłomiej Gaweł" Size="AvatarSize.Size40" /></Leading>
+            </SidebarLabel>
+        </SidebarFooter>
+    </Sidebar>
+
+    <SidebarInset>
+        <Header>
+            <SidebarTrigger />
+            <span>Home</span>
+        </Header>
+        <ChildContent>
+            @Body
+        </ChildContent>
+    </SidebarInset>
+</SidebarProvider>
+
+<FluentProviders />

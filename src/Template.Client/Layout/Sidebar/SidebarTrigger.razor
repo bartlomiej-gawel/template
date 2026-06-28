@@ -1,0 +1,22 @@
+@implements IDisposable
+
+<FluentButton Appearance="ButtonAppearance.Subtle"
+              IconOnly="true"
+              IconStart="@(new Icons.Regular.Size20.Navigation())"
+              Title="@Title"
+              OnClick="Toggle"
+              aria-expanded="@(Context.IsOpen ? "true" : "false")" />
+
+@code {
+    [CascadingParameter] public SidebarContext Context { get; set; } = default!;
+
+    [Parameter] public string Title { get; set; } = "Przełącz menu";
+
+    protected override void OnInitialized() => Context.OnChange += OnChange;
+
+    private void Toggle() => Context.Toggle();
+
+    private void OnChange() => InvokeAsync(StateHasChanged);
+
+    public void Dispose() => Context.OnChange -= OnChange;
+}

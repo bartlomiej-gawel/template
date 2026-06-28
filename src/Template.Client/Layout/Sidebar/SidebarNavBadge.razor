@@ -1,0 +1,10 @@
+<FluentBadge Appearance="@Appearance" Shape="@Shape" Color="@Color">
+    @ChildContent
+</FluentBadge>
+
+@code {
+    [Parameter] public BadgeAppearance Appearance { get; set; } = BadgeAppearance.Filled;
+    [Parameter] public BadgeShape Shape { get; set; } = BadgeShape.Circular;
+    [Parameter] public BadgeColor Color { get; set; } = BadgeColor.Brand;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

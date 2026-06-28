@@ -1,0 +1,67 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<CascadingValue Value="Context" IsFixed="true">
+    <div class="sidebar-provider @(Context.IsOpen ? "is-open" : "is-closed")">
+        @ChildContent
+    </div>
+</CascadingValue>
+
+@code {
+    [Parameter] public bool DefaultOpen { get; set; } = true;
+    [Parameter] public bool? Open { get; set; }
+    [Parameter] public EventCallback<bool> OpenChanged { get; set; }
+    [Parameter] public string? PersistKey { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    public SidebarContext Context { get; private set; } = default!;
+
+    private IJSObjectReference? _module;
+    private bool _restored;
+
+    protected override void OnInitialized()
+    {
+        Context = new SidebarContext(Open ?? DefaultOpen);
+        Context.OnChange += HandleChange;
+    }
+
+    private async void HandleChange()
+    {
+        await InvokeAsync(StateHasChanged);
+
+        if (OpenChanged.HasDelegate)
+        {
+            await OpenChanged.InvokeAsync(Context.IsOpen);
+        }
+
+        if (PersistKey is not null && _module is not null)
+        {
+            await _module.InvokeVoidAsync("save", PersistKey, Context.IsOpen);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || PersistKey is null || _restored)
+        {
+            return;
+        }
+
+        _restored = true;
+        _module = await JS.InvokeAsync<IJSObjectReference>("import", "./Layout/Sidebar/SidebarProvider.razor.js");
+
+        var persisted = await _module.InvokeAsync<bool>("load", PersistKey, Context.IsOpen);
+
+        Context.Set(persisted);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        Context.OnChange -= HandleChange;
+
+        if (_module is not null)
+        {
+            await _module.DisposeAsync();
+        }
+    }
+}
