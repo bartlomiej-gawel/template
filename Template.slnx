@@ -4,4 +4,18 @@
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
   </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Template.Api/Template.Api.csproj" />
+    <Project Path="src/Template.Application/Template.Application.csproj" />
+    <Project Path="src/Template.Client/Template.Client.csproj" />
+    <Project Path="src/Template.Contracts/Template.Contracts.csproj" />
+    <Project Path="src/Template.Domain/Template.Domain.csproj" />
+    <Project Path="src/Template.Infrastructure/Template.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Template.Tests.Architecture/Template.Tests.Architecture.csproj" />
+    <Project Path="tests/Template.Tests.Client/Template.Tests.Client.csproj" />
+    <Project Path="tests/Template.Tests.Integration/Template.Tests.Integration.csproj" />
+    <Project Path="tests/Template.Tests.Unit/Template.Tests.Unit.csproj" />
+  </Folder>
 </Solution>

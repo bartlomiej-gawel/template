@@ -1,0 +1,7 @@
+﻿services:
+  template.api:
+    image: template.api
+    build:
+      context: .
+      dockerfile: src/Template.Api/Dockerfile
+
