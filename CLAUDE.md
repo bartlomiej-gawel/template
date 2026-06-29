@@ -39,4 +39,4 @@ Keep the dependency rule strict: Domain stays dependency-free; the client and AP
 - **Central Package Management**: all package versions live in `Directory.Packages.props`. Reference packages in csproj **without** a `Version` attribute; add new versions to that file.
 - Shared MSBuild settings (`net10.0`, `ImplicitUsings`, `Nullable`, warnings-as-errors) live in `Directory.Build.props` — don't duplicate them per project.
 - Tests use **TUnit** (`TUnit.Mocks` for mocking). Integration tests use **Testcontainers** (PostgreSQL, Redis). Client tests use **bUnit**.
-- UI uses **Microsoft.FluentUI** Blazor components.
+- UI is a **Blazor WebAssembly** SPA (`Template.Client`); no component library is currently referenced (to be selected).

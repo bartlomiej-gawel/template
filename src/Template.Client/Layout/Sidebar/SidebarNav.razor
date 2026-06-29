@@ -1,9 +1,0 @@
-<FluentNav UseIcons="true" UseSingleExpanded="@SingleExpanded" Density="@Density" class="sidebar-nav">
-    @ChildContent
-</FluentNav>
-
-@code {
-    [Parameter] public bool SingleExpanded { get; set; }
-    [Parameter] public NavDensity Density { get; set; } = NavDensity.Medium;
-    [Parameter] public RenderFragment? ChildContent { get; set; }
-}
